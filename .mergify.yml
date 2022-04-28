@@ -6,7 +6,6 @@ pull_request_rules:
   - name: merge using the merge queue
     conditions:
       - label=mergequeue
-      - check-success=say-hello-workflow
       - "check-success=ci/circleci: say-hello"
     actions:
       queue:
