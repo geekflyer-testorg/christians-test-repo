@@ -1,11 +1,13 @@
 queue_rules:
   - name: default
-    conditions: []  # no extra conditions needed to get merged
+    conditions: []
 
 pull_request_rules:
   - name: merge using the merge queue
     conditions:
       - label=mergequeue
+      - "check-success=ci/circleci: say-hello"
     actions:
       queue:
         name: default
+        method: squash
